@@ -1,11 +1,19 @@
-module.exports = {
-    people: [
+const people = [
         'Randy Lahey',
         'Trevor Cory',
-        'Jim Lahey'
-    ],
+        'Jim Lahey',
+        'Bubbles',
+        'Ricky LaFleur',
+        'Julien',
+        'J-Roc',
+        'Detroit Velvet Smooth',
+        'Sam Losco',
+        'Alex Lifeson',
+        'Geddy Lee',
+        'Neil Peart'
+    ];
     
-    dogs: [
+const dogs = [
         {
             age: 3,
             breed: 'Golden Retriever',
@@ -115,9 +123,9 @@ module.exports = {
             name: 'Tim',
             story: 'Found in neighborhood'
         }
-    ],
+    ];
     
-    cats: [
+const cats = [
         {
             age: 2,
             breed: 'Bengal',
@@ -226,5 +234,5 @@ module.exports = {
             name: 'Vince the Pince',
             story: 'Found in neighborhood'
         }
-    ]
-};
+    ];
+module.exports = {dogs, cats, people}
