@@ -1,13 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-const {PORT} = require('./config')
+const {PORT} = require('./config');
 
-const { dogRouter } = require('./endpoints/dog')
-const { peopleRouter } = require('./endpoints/people')
-const { adoptedRouter } = require('./adopted')
-const { catRouter } = require('./endpoints/cat')
+const { dogRouter } = require('./endpoints/dog');
+const { peopleRouter } = require('./endpoints/people');
+const { adoptedRouter } = require('./adopted');
+const { catRouter } = require('./endpoints/cat');
 
-const app = express();
+const app = express().Router();
+
 app.use(cors({
   origin: 'https://petfulofit.now.sh'
 }));
