@@ -1,11 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const catRouter = require('./endpoints/cat')
-const dogRouter = require('./endpoints/dog')
-const { peopleRouter } = require('./endpoints/people')
-const { adoptedRouter } = require('./adopted')
 const {PORT} = require('./config')
 
+const { dogRouter } = require('./endpoints/dog')
+const { peopleRouter } = require('./endpoints/people')
+const { adoptedRouter } = require('./adopted')
+const { catRouter } = require('./endpoints/cat')
 
 const app = express();
 app.use(cors({
