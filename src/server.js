@@ -8,7 +8,9 @@ const {PORT} = require('./config')
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://petfulofit.now.sh/api'
+}));
 app.options('*', cors());
 
 app.use('/api/cat', catRouter);
