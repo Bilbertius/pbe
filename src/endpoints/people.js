@@ -1,9 +1,11 @@
 const express = require('express');
-const peopleRouter = express.Router();
+
 const { people } = require('../store');
 const { Queue, display, isEmpty, peek } = require('../queue');
-const jsonParser = express.json();
+const jsonP = express.json();
 
+
+const peopleRouter = express.Router();
 let peopleQueue = new Queue();
 
 people.forEach(people => peopleQueue.enqueue(people));
@@ -17,7 +19,7 @@ peopleRouter
         })
     })
 
-    .post(jsonParser, (req, res, next) => {
+    .post(json, (req, res, next) => {
         const { name } = req.body;
         peopleQueue.enqueue(name);
         return res.status(200).json({

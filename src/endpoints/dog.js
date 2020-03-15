@@ -1,12 +1,12 @@
 const express = require('express')
-const dogRouter = express.Router()
+const json = express.json()
 const {adoptedQueue} = require('../adopted')
 const {peopleQueue} = require('./people')
 const { dogs } = require('../store')
 const { Queue, display, isEmpty, peek } = require('../queue')
-const jsonParser = express.json()
 
 
+const dogRouter = express.Router()
 let dogQueue = new Queue();
 
 dogs.forEach(dog => dogQueue.enqueue(dog))
@@ -23,7 +23,7 @@ dogRouter
 
 
     //adopt a dog
-    .delete(jsonParser, (req, res, next) => {
+    .delete(json, (req, res, next) => {
 
         let adoptedDog = dogQueue.dequeue();
         dogQueue.enqueue(adoptedDog);
