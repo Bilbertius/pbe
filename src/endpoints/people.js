@@ -5,7 +5,7 @@ const { Queue, display, isEmpty, peek } = require('../queue');
 const json = express.json();
 
 
-const peopleRouter = express.();
+const peopleRouter = express();
 let peopleQueue = new Queue();
 
 people.forEach(people => peopleQueue.enqueue(people));
@@ -22,9 +22,7 @@ peopleRouter
     .post(json, (req, res, next) => {
         const { name } = req.body;
         peopleQueue.enqueue(name);
-        return res.status(200).json({
-            message: `you've are now in the queue`
-        })
+        return res.status(200).json();
     })
 
     
