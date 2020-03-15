@@ -235,4 +235,4 @@ const cats = [
             story: 'Found in neighborhood'
         }
     ];
-module.exports = {dogs, cats, people}
+module.exports = {dogs, cats, people};

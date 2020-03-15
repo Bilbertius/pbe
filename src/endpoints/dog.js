@@ -1,20 +1,20 @@
-const express = require('express')
-const json = express.json()
-const {adoptedQueue} = require('../adopted')
-const {peopleQueue} = require('./people')
-const { dogs } = require('../store')
-const { Queue, display, isEmpty, peek } = require('../queue')
+const express = require('express');
+const json = express.json();
+const {adoptedQueue} = require('../adopted');
+const {peopleQueue} = require('./people');
+const { dogs } = require('../store');
+const { Queue, display,peek } = require('../queue');
 
 
-const dogRouter = express.Router()
+const dogRouter = express.Router();
 let dogQueue = new Queue();
 
-dogs.forEach(dog => dogQueue.enqueue(dog))
+dogs.forEach(dog => dogQueue.enqueue(dog));
 
 dogRouter
     .route('/')
     //getting first dog
-    .get((req, res, next) => {
+    .get((req, res) => {
         let firstDog = peek(dogQueue);
         return res.status(200).json({
             dog: firstDog
@@ -23,7 +23,7 @@ dogRouter
 
 
     //adopt a dog
-    .delete(json, (req, res, next) => {
+    .delete(json, (req, res) => {
 
         let adoptedDog = dogQueue.dequeue();
         dogQueue.enqueue(adoptedDog);

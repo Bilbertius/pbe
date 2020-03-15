@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { people } = require('../store');
-const { Queue, display, isEmpty, peek } = require('../queue');
+const { Queue, display } = require('../queue');
 const json = express.json();
 
 
@@ -12,21 +12,21 @@ people.forEach(people => peopleQueue.enqueue(people));
 
 peopleRouter
     .route('/')
-    .get((req, res, next) => {
+    .get((req, res) => {
         let peopleLine = display(peopleQueue);
         return res.status(200).json({
             peopleLine: peopleLine
         })
     })
 
-    .post(json, (req, res, next) => {
+    .post(json, (req, res) => {
         const { name } = req.body;
         peopleQueue.enqueue(name);
         return res.status(200).json();
     })
 
     
-    .delete((req, res, next) => {
+    .delete((req, res) => {
         let peopleDequeue = peopleQueue.dequeue();
 
         return res.send({
