@@ -2,10 +2,10 @@ const express = require('express');
 
 const { people } = require('../store');
 const { Queue, display, isEmpty, peek } = require('../queue');
-const jsonP = express.json();
+const json = express.json();
 
 
-const peopleRouter = express.Router();
+const peopleRouter = express.();
 let peopleQueue = new Queue();
 
 people.forEach(people => peopleQueue.enqueue(people));
@@ -40,4 +40,4 @@ module.exports = {
     peopleRouter: peopleRouter,
     peopleQueue: peopleQueue
 
-}
+};

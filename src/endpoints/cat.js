@@ -6,7 +6,7 @@ const { adoptedQueue } = require('../adopted');
 const { peopleQueue } = require('./people');
 const catRouter = express.Router();
 const { Queue, display, isEmpty, peek } = require('../queue')
-const jsonParser = express.json()
+const json = express.json()
 
 
 let catQueue = new Queue();
@@ -20,7 +20,7 @@ catRouter.get('/', (req, res, next) => {
             cat: firstCat
         })
     })
-    catRouter.delete('/',jsonParser, (req, res, next) => {
+    catRouter.delete('/',json, (req, res, next) => {
 
 
         let adoptedCat = catQueue.dequeue();
