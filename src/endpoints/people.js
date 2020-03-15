@@ -2,7 +2,7 @@ const express = require('express');
 
 const { people } = require('../store');
 const { Queue, display } = require('../queue');
-const json = require('body-parser').json();
+const json = express.json();
 
 
 const peopleRouter = express();
@@ -20,9 +20,9 @@ peopleRouter
     })
 
     .post(json, (req, res) => {
-        const  person  = req.body;
-        peopleQueue.enqueue(person);
-        return res.status(200).json({person});
+        const  name  = req.body;
+        peopleQueue.enqueue(name);
+        return res.status(200).json({name});
     })
 
     
