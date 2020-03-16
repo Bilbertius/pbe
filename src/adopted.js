@@ -1,8 +1,8 @@
-const express = require('express')
-const { Queue, display, isEmpty, peek } = require('./queue')
-const adoptedRouter = express.Router()
+const express = require('express');
+const { Queue} = require('./queue');
+const adoptedRouter = express.Router();
 
-let adoptedQueue = new Queue()
+let adoptedQueue = new Queue();
 
 adoptedRouter
     .route('/')
