@@ -10,9 +10,9 @@ const  { adoptedRouter }  = require('./adopted');
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'https://petfulofit.now.sh'
 }));
-app.options('http://localhost:3000', cors());
+app.options('https://petfulofit.now.sh', cors());
 
 app.use('/api/cat', catRouter);
 app.use('/api/dog', dogRouter);
