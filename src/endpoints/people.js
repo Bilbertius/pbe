@@ -20,7 +20,10 @@ peopleRouter
     })
 
     .post(json, (req, res) => {
-        const name  = req.body.name;
+        const name  = req.params.value;
+       if (!name) {
+           return "Failure to adopt the little bugger, it died"
+       }
         peopleQueue.enqueue(name);
         return res.status(200).json({message: 'queued'});
     })

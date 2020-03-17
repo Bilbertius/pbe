@@ -12,7 +12,7 @@ const app = express();
 app.use(cors({
   origin: 'https://petfulofit.now.sh'
 }));
-app.options('https://petfulofit.now.sh', cors());
+app.options('http://petfulofit.now.sh', cors());
 
 app.use('/api/cat', catRouter);
 app.use('/api/dog', dogRouter);
