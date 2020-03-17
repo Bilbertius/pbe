@@ -20,7 +20,8 @@ peopleRouter
     })
 
     .post(json, (req, res) => {
-        const name  = req.params.value;
+        const name  = req.body.name;
+        console.log(name);
        if (!name) {
            return "Failure to adopt the little bugger, it died"
        }
