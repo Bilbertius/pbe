@@ -1,17 +1,11 @@
-const people = [
+const users = [
         'Randy Lahey',
         'Trevor Cory',
         'Jim Lahey',
         'Bubbles',
         'Ricky LaFleur',
-        'Julien',
-        'J-Roc',
         'Detroit Velvet Smooth',
-        'Sam Losco',
-        'Alex Lifeson',
-        'Geddy Lee',
-        'Neil Peart'
-    ];
+];
     
 const dogs = [
         {
@@ -228,11 +222,11 @@ const cats = [
         {
             age: 3,
             breed: 'Tabby',
-            description: 'boxer dog',
+            description: 'boxer cat',
             gender: 'Male',
             imageURL: 'https://images.pexels.com/photos/1472999/pexels-photo-1472999.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
             name: 'Vince the Pince',
             story: 'Found in neighborhood'
         }
     ];
-module.exports = {dogs, cats, people};
+module.exports = {dogs, cats, users};

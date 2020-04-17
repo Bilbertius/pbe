@@ -2,7 +2,7 @@ const express = require('express');
 
 const { cats } = require('../store');
 const { adoptedQueue } = require('../adopted');
-const { peopleQueue } = require('./people');
+const { peopleQueue } = require('./user');
 const catRouter = express.Router();
 const { Queue, display, peek } = require('../queue');
 const json = express.json();
@@ -21,19 +21,12 @@ catRouter.get('/', (req, res) => {
     });
     catRouter.delete('/',json, (req, res) => {
 
-
         let adoptedCat = catQueue.dequeue();
         catQueue.enqueue(adoptedCat);
-        adoptedQueue.enqueue(adoptedCat);
 
-        let peopleDequeue = peopleQueue.dequeue();
-
-        if(peopleDequeue !== req.body.name) {
-            peopleQueue.enqueue(peopleDequeue)
-        }
-        
         return res.send({
-            adoptedList: display(adoptedQueue)
+            newCat: peek(catQueue),
+            adopted: adoptedCat
         })
     }) ;
 module.exports = catRouter;
