@@ -12,7 +12,7 @@ const { PORT } = require('./config');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000'}));
+app.use(cors({ origin: 'http://petfulest.now.sh'}));
 
 const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common';
 app.use(morgan(morganSetting));
