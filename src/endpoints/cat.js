@@ -1,5 +1,4 @@
 const express = require('express');
-
 const { cats } = require('../store');
 const { adoptedQueue } = require('../adopted');
 const { peopleQueue } = require('./user');

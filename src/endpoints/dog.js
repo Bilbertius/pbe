@@ -2,9 +2,11 @@ const express = require('express');
 const json = express.json();
 const { dogs } = require('../store');
 const { Queue, display,peek } = require('../queue');
-
-
 const dogRouter = express.Router();
+
+
+
+
 let dogQueue = new Queue();
 
 dogs.forEach(dog => dogQueue.enqueue(dog));
@@ -23,6 +25,7 @@ dogRouter.delete('/',json, (req, res) => {
     dogQueue.enqueue(adoptedDog);
     
     return res.send({
+        newDog:peek(dogQueue),
         adopted: adoptedDog
     })
 }) ;
