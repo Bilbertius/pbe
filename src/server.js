@@ -12,12 +12,13 @@ const { PORT } = require('./config');
 
 const app = express();
 
-app.use(cors({ origin: 'http://petful-pearl.now.sh'}));
+
 
 const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common';
 app.use(morgan(morganSetting));
 app.use(helmet());
 
+app.use(cors({ origin: 'http://petful-pearl.now.sh'}));
 app.use(express.json());
 app.use('/api/dog', dogRouter);
 app.use('/api/cat', catRouter);
