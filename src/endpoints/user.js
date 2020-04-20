@@ -25,7 +25,11 @@ userRouter.get('/',(req, res) => {
         const user = userQueue.dequeue();
         userQueue.enqueue(user);
         let userLine = display(userQueue);
-        res.send(userLine);
+        res.send({
+            userLine : userLine,
+            adopter: user
+        }
+   );
     });
 
 module.exports = userRouter;

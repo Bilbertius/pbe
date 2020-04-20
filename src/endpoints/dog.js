@@ -22,11 +22,10 @@ dogRouter.get('/', (req, res) => {
 dogRouter.delete('/',json, (req, res) => {
     
     let adoptedDog = dogQueue.dequeue();
-    console.log(adoptedDog);
     dogQueue.enqueue(adoptedDog);
-    console.log(peek(dogQueue))
+    
     return res.send({
-        newDog:peek(dogQueue),
+        new:peek(dogQueue),
         adopted: adoptedDog
     })
 }) ;
