@@ -21,11 +21,12 @@ catRouter.get('/', (req, res) => {
     catRouter.delete('/',json, (req, res) => {
 
         let adoptedCat = catQueue.dequeue();
-        console.log(adoptedCat);
+        
         catQueue.enqueue(adoptedCat);
-        console.log(peek(catQueue))
+        let newCat = peek(catQueue);
+        
         return res.send({
-            cat: peek(catQueue),
+            cat: newCat,
             adopted: adoptedCat
         })
     });
