@@ -1,7 +1,7 @@
 const express = require('express');
 const userRouter = express.Router();
 const { users } = require('../store');
-const { Queue, display } = require('../queue');
+const { Queue, display, peek } = require('../queue');
 const bodyParser = require('body-parser');
 
 
@@ -27,7 +27,7 @@ userRouter.get('/',(req, res) => {
         let userLine = display(userQueue);
         res.send({
             userLine : userLine,
-            adopter: user
+            adopter: peek(userQueue)
         }
    );
     });
